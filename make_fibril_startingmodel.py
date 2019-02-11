@@ -4,11 +4,21 @@
 
 import sys
 import subprocess
+import os
 
+####### UPDATE PATHS HERE ##########
 relion_HT_path='/fbs/emsoftware2/LINUX/fbscem/relion3/relion-3.0_beta/build/bin/relion_helix_toolbox'
 pdb2mrc_path='/fbs/emsoftware2/LINUX/EMAN2.12/bin/e2pdb2mrc.py'
+##################
 
 
+###### no touchy touchy ##########
+
+if os.path.isfile(relion_HT_path) ==False:
+    sys.exit('relion_helix_toolbox not found at {0}: update the path in the script'.format(relion_HT_path))
+
+if os.path.isfile(pdb2mrc_path) ==False:
+    sys.exit('e2pdb2mrc.py not found at {0}: update the path in the script'.format(pdb2mrc_path))
 
 if len(sys.argv) < 5:
     sys.exit('\nUSAGE: make _fibril_starting_model <width (A)> <thickness (A)> <x-over length (nm) <apix>')
@@ -19,7 +29,7 @@ crossoverlength = float(sys.argv[3])
 apix = float(sys.argv[4])
 
 twist = 180.0/((crossoverlength*10)/4.8)
-print twist
+print('using twist of {0} degrees'.format(twist))
 corners = ((0-width_thick,0-width_thin,0),(0-width_thick,0+width_thin,0),(0+width_thick,0+width_thin,0),(0+width_thick,0-width_thin,0))
 
 corner1 = (0-width_thick,0-width_thin,0)
@@ -34,11 +44,6 @@ rowpairs = []
 for v in vrows:
     for h in hrows:
         rowpairs.append((v,h,0))
-
-print rowpairs
-
-print vrows
-print hrows
 
 output = open('{}_{}_{}.pdb'.format(width_thick,width_thin,crossoverlength),'w')
 
