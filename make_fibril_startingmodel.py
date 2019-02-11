@@ -50,3 +50,4 @@ output.close()
 
 subprocess.call('{4} --pdb_helix --i {0}_{1}_{2}.pdb --o fibrilmodel.pdb --cyl_outer_diameter 0 --rise 4.8 --twist {3} --nr_subunits 100'.format(width_thick,width_thin,crossoverlength,twist,relion_HT_path),shell=True)
 subprocess.call('{4} fibrilmodel.pdb {0}_{1}_{2}.mrc --res 15 --apix {3}'.format(width_thick,width_thin,crossoverlength,apix,pdb2mrc_path),shell=True)
+subprocess.call('rm {}_{}_{}.pdb'.format(width_thick,width_thin,crossoverlength),shell=True)
