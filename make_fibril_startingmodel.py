@@ -29,6 +29,8 @@ crossoverlength = float(sys.argv[3])
 apix = float(sys.argv[4])
 
 twist = 180.0/((crossoverlength*10)/4.8)
+if '-RH' not in sys.argv:
+    twist = twist*-1
 print('using twist of {0} degrees'.format(twist))
 corners = ((0-width_thick,0-width_thin,0),(0-width_thick,0+width_thin,0),(0+width_thick,0+width_thin,0),(0+width_thick,0-width_thin,0))
 
