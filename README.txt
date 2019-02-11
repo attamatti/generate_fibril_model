@@ -1,8 +1,9 @@
-USAGE: make _fibril_starting_model <width (A)> <thickness (A)> <x-over length (nm) <apix>
+USAGE: make_fibril_starting_model <width (A)> <thickness (A)> <x-over length (nm) <apix>
+Fibrils are left handed by default, add the flag -RH to the end if for right-handed fibrils (if you're into that kind of thing)
 
-update the paths to relion_helixtoolbox and e2pdb2mrc.py in the top of the script before using 
+Update the paths to relion_helixtoolbox and e2pdb2mrc.py in the top of the script before using 
 
-to use the models in relion clip them to the corect box size with e2proc3d.py
+To use the models in relion clip them to the corect box size with e2proc3d.py
 
 e2proc3d.py in_file.mrc outfile.mrc --clip=boxsize,boxsize,boxsize
 
