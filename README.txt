@@ -1,6 +1,6 @@
 USAGE: make _fibril_starting_model <width (A)> <thickness (A)> <x-over length (nm) <apix>
 
-update the paths to relion_helixtoolbox and e2pdb2mrc.py in the top of teh script before using 
+update the paths to relion_helixtoolbox and e2pdb2mrc.py in the top of the script before using 
 
 to use the models in relion clip them to the corect box size with e2proc3d.py
 
