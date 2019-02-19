@@ -23,8 +23,8 @@ if os.path.isfile(pdb2mrc_path) ==False:
 if len(sys.argv) < 5:
     sys.exit('\nUSAGE: make _fibril_starting_model <width (A)> <thickness (A)> <x-over length (nm) <apix>')
 
-width_thick = int(sys.argv[1])
-width_thin = int(sys.argv[2])
+width_thick = int(0.5*sys.argv[1])
+width_thin = int(0.5*sys.argv[2])
 crossoverlength = float(sys.argv[3])
 apix = float(sys.argv[4])
 
